@@ -38,3 +38,12 @@ void mv_sum(MatrixView dest, MatrixView left, MatrixView right) {
         for (size_t j = 0; j < dest.colCount; ++j)
             MV_GET(dest, i, j) = MV_GET(left, i, j) + MV_GET(right, i, j);
 }
+
+void mv_sumto(MatrixView dest, MatrixView src) {
+    assert(dest.rowCount == src.rowCount && "Ошибка! Число строк у двух матриц различается!\n");
+    assert(dest.colCount == src.colCount && "Ошибка! Число столбцов у двух матриц различается!\n");
+
+    for (size_t i = 0; i < dest.rowCount; ++i)
+        for (size_t j = 0; j < dest.colCount; ++j)
+            MV_GET(dest, i, j) += MV_GET(src, i, j);
+}
