@@ -47,3 +47,18 @@ void mv_sumto(MatrixView dest, MatrixView src) {
         for (size_t j = 0; j < dest.colCount; ++j)
             MV_GET(dest, i, j) += MV_GET(src, i, j);
 }
+
+void mv_dot(MatrixView dest, MatrixView left, MatrixView right) {
+    assert(left.colCount == right.rowCount &&
+            "Ошибка! Число столбцов левого множителя не равно числу строк правого!\n");
+    assert(dest.rowCount == left.rowCount && dest.colCount == right.colCount &&
+            "Ошибка! Матрица-произведение не соответсвует размерам!\n");
+
+    for (size_t i = 0; i < dest.rowCount; ++i) {
+        for (size_t j = 0; j < dest.colCount; ++j) {
+            MV_GET(dest, i, j) = 0.0;
+            for (size_t k = 0; k < left.colCount; ++k)
+                MV_GET(dest, i, j) += MV_GET(left, i, k) * MV_GET(right, k, j);
+        }
+    }
+}

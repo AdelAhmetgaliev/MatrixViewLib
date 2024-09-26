@@ -23,5 +23,6 @@ void mv_print(MatrixView matrix);
 void mv_copy(MatrixView dest, MatrixView src);
 void mv_sum(MatrixView dest, MatrixView left, MatrixView right);
 void mv_sumto(MatrixView dest, MatrixView src);
+void mv_dot(MatrixView dest, MatrixView left, MatrixView right);
 
 #endif /* MATRIXVIEW_H_ */
