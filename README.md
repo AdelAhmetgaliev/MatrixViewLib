@@ -35,5 +35,16 @@ void mv_copydf(MatrixView dest, MatrixView src);
 ```
 
 Различие двух функций копирования в том, что `mv_copy` требует строгого соответсвия размеров
-матриц (количества строк и столбцов). В то время как для `mv_copydf` достаточно соответсвия
+матриц (количества строк и столбцов). В то время как для `mv_copydf` достаточно соответствия
 размеров линейных массивов (`dataView[]`).
+
+#### Суммирование
+Суммирует матрицы *left* и *right*. Записывает результат в *dest*. *dest* = *left* + *right*.
+```C
+void mv_sum(MatrixView dest, MatrixView left, MatrixView right);
+```
+
+Суммирует матрицы *dest* и *src*. *dest* += *src*.
+```C
+void mv_sumto(MatrixView dest, MatrixView src);
+```
