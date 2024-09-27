@@ -7,7 +7,7 @@ SDIR = src
 IDIR = $(SDIR)/inc
 
 CFLAGS = -g -Wall -Wextra -I$(IDIR)
-LIBS =
+LIBS = -lm
 
 _HEADS = matrixview.h
 HEADS = $(patsubst %,$(IDIR)/%,$(_HEADS))

@@ -1,27 +1,44 @@
+/**
+ * Работы с MatrixView на примере разворота вектора на 45°.
+ */
+
+#include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "matrixview.h"
 
+double degreesToRadians(double degrees);
+
 int main(void) {
-    double data1[] = { 
-        1.0, 0.0,
-        0.0, 1.0,
-        2.0, 3.0,
+    double angleDegrees = 45.0;
+    double angleRadians = degreesToRadians(angleDegrees);
+
+    double vectorData[] = { 1, 0 };
+    double rotationData[] = {
+        cos(angleRadians), -sin(angleRadians),
+        sin(angleRadians), cos(angleRadians)
     };
 
-    double data2[] = {
-        2.0, 3.0,
-        0.0, 5.0,
-    };
+    double *resultData = calloc(2, sizeof(double));
+    if (!resultData) {
+        fprintf(stderr, "Не удалось выделить память.\n");
+        return EXIT_FAILURE;
+    }
 
-    double data3[6];
- 
-    MatrixView matrix1 = mv_new(data1, 3, 2);
-    MatrixView matrix2 = mv_new(data2, 2, 2);
-    MatrixView matrix3 = mv_new(data3, 3, 2);
+    MatrixView vector = mv_new(vectorData, 1, 2);
+    MatrixView rotationMatrix = mv_new(rotationData, 2, 2);
+    MatrixView resultVector = mv_new(resultData, 1, 2);
 
-    mv_dot(matrix3, matrix1, matrix2);
-    mv_print(matrix3);
+    mv_dot(resultVector, vector, rotationMatrix);
+    mv_print(resultVector);
+
+    free(resultData);
+    resultData = NULL;
 
     return EXIT_SUCCESS;
+}
+
+double degreesToRadians(double degrees) {
+    return degrees * (M_PI / 180.0);
 }
