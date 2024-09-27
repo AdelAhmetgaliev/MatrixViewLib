@@ -14,7 +14,11 @@ typedef struct _MatrixView {
 ```
 
 ### Реализованные методы
-#### Создание нового объекта
+#### Создание нового экземпляра структуры
 ```C
 MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount);
+```
+#### Вывод в консоль
+```C
+void mv_print(MatrixView matrix);
 ```
