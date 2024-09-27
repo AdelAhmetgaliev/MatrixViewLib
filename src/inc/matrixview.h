@@ -21,6 +21,7 @@ typedef struct _MatrixView {
 MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount);
 void mv_print(MatrixView matrix);
 void mv_copy(MatrixView dest, MatrixView src);
+void mv_copydf(MatrixView dest, MatrixView src);
 void mv_sum(MatrixView dest, MatrixView left, MatrixView right);
 void mv_sumto(MatrixView dest, MatrixView src);
 void mv_dot(MatrixView dest, MatrixView left, MatrixView right);

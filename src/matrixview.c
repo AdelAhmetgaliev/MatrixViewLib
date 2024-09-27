@@ -24,6 +24,14 @@ void mv_copy(MatrixView dest, MatrixView src) {
             MV_GET(dest, i, j) = MV_GET(src, i, j);
 }
 
+void mv_copydf(MatrixView dest, MatrixView src) {
+    assert(dest.rowCount * dest.colCount == src.rowCount * src.colCount &&
+            "Ошибка! Общие размеры матриц различны!");
+
+    for (size_t i = 0; i < dest.rowCount * dest.colCount; ++i)
+        dest.dataView[i] = src.dataView[i];
+}
+
 void mv_sum(MatrixView dest, MatrixView left, MatrixView right) {
     assert(left.rowCount == right.rowCount &&
             "Ошибка! Число строк двух слагаемых различается!\n");
