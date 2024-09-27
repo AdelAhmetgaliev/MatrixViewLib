@@ -12,3 +12,9 @@ typedef struct _MatrixView {
     size_t colCount;
 } MatrixView;
 ```
+
+### Реализованные методы
+#### Создание нового объекта
+```C
+MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount);
+```
