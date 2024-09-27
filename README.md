@@ -39,12 +39,24 @@ void mv_copydf(MatrixView dest, MatrixView src);
 размеров линейных массивов (`dataView[]`).
 
 #### Суммирование
-Суммирует матрицы *left* и *right*. Записывает результат в *dest*. *dest* = *left* + *right*.
+Суммирует матрицы *left* и *right*. Записывает результат в *dest*.
 ```C
 void mv_sum(MatrixView dest, MatrixView left, MatrixView right);
 ```
 
-Суммирует матрицы *dest* и *src*. *dest* += *src*.
+Суммирует матрицы *dest* и *src*. Записывает результат в *dest*.
 ```C
 void mv_sumto(MatrixView dest, MatrixView src);
+```
+
+#### Умножение
+Умножает матрицы *left* и *right*. Записывает результат в *dest*.
+```C
+void mv_dot(MatrixView dest, MatrixView left, MatrixView right);
+```
+
+### Макросы
+Макрос заменяющий обращение `matrix[row][col]`. 
+```C
+#define MV_GET(matrix, row, col) (matrix).dataView[(row) * (matrix).colCount + (col)]
 ```
