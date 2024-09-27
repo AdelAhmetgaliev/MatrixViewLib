@@ -22,3 +22,9 @@ MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount);
 ```C
 void mv_print(MatrixView matrix);
 ```
+
+#### Копирование
+Копирует элементы матрицы *src* в матрицу *dest*. Размеры матриц должны быть одинаковы.
+```C
+void mv_copy(MatrixView dest, MatrixView src);
+```
