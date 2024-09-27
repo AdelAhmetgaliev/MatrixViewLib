@@ -1,5 +1,5 @@
 CC = gcc
-LIBTARGET = lib/matrixviewlib.a
+LIBTARGET = lib/libmatrixview.a
 TARGET = bin/matrixview
 
 ODIR = obj
