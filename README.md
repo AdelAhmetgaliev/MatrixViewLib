@@ -28,3 +28,12 @@ void mv_print(MatrixView matrix);
 ```C
 void mv_copy(MatrixView dest, MatrixView src);
 ```
+
+Копирует элементы матрицы *src* в матрицу *dest*. Общие размеры матриц должны быть одинаковы.
+```C
+void mv_copydf(MatrixView dest, MatrixView src);
+```
+
+Различие двух функций копирования в том, что `mv_copy` требует строгого соответсвия размеров
+матриц (количества строк и столбцов). В то время как для `mv_copydf` достаточно соответсвия
+размеров линейных массивов (`dataView[]`).
