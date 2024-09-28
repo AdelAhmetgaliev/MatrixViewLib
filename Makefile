@@ -24,7 +24,7 @@ $(TARGET): $(OBJS) $(LIBTARGET)
 $(LIBTARGET): $(LIBOBJS)
 	ar -rcs $@ $^
 
-$(ODIR)/%.o: $(SDIR)/%.c $(HEADS) bin lib obj
+$(ODIR)/%.o: $(SDIR)/%.c $(HEADS) bin lib $(ODIR)
 	$(CC) -c -o $@ $< $(CFLAGS) $(LIBS)
 
 bin:
@@ -33,7 +33,7 @@ bin:
 lib:
 	mkdir $@
 
-obj:
+$(ODIR):
 	mkdir $@
 
 .PHONY: clean
