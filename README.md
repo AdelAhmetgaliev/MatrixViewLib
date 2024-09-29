@@ -20,18 +20,18 @@ MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount);
 ```
 #### Вывод в консоль
 ```C
-void mv_print(MatrixView matrix);
+void mv_print(const MatrixView *matrix);
 ```
 
 #### Копирование
 Копирует элементы матрицы *src* в матрицу *dest*. Размеры матриц должны быть одинаковы.
 ```C
-void mv_copy(MatrixView dest, MatrixView src);
+void mv_copy(MatrixView *dest, const MatrixView *src);
 ```
 
 Копирует элементы матрицы *src* в матрицу *dest*. Общие размеры матриц должны быть одинаковы.
 ```C
-void mv_copydf(MatrixView dest, MatrixView src);
+void mv_copydf(MatrixView *dest, const MatrixView *src);
 ```
 
 Различие двух функций копирования в том, что `mv_copy` требует строгого соответсвия размеров
@@ -41,18 +41,18 @@ void mv_copydf(MatrixView dest, MatrixView src);
 #### Суммирование
 Суммирует матрицы *left* и *right*. Записывает результат в *dest*.
 ```C
-void mv_sum(MatrixView dest, MatrixView left, MatrixView right);
+void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 ```
 
 Суммирует матрицы *dest* и *src*. Записывает результат в *dest*.
 ```C
-void mv_sumto(MatrixView dest, MatrixView src);
+void mv_sumto(MatrixView *dest, const MatrixView *src);
 ```
 
 #### Умножение
 Умножает матрицы *left* и *right*. Записывает результат в *dest*.
 ```C
-void mv_dot(MatrixView dest, MatrixView left, MatrixView right);
+void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 ```
 
 ### Макросы
