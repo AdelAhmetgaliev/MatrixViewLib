@@ -30,8 +30,8 @@ int main(void) {
     MatrixView rotationMatrix = mv_new(rotationData, 2, 2);
     MatrixView resultVector = mv_new(resultData, 1, 2);
 
-    mv_dot(resultVector, vector, rotationMatrix);
-    mv_print(resultVector);
+    mv_dot(&resultVector, &vector, &rotationMatrix);
+    mv_print(&resultVector);
 
     free(resultData);
     resultData = NULL;
