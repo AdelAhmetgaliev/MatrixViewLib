@@ -56,9 +56,15 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 ```
 
 #### Рандомизация
-Заполняет матрицу рандомными значениями от -1 до +1.
+Заполняет матрицу рандомными значениями от -1.0 до +1.0.
 ```C
 void mv_rand(MatrixView *matrix);
+```
+
+#### Применение функции
+Применяет функцию *func* ко всем элементам матрицы.
+```C
+void mv_map(MatrixView *matrix, double (*func)(double));
 ```
 
 ### Макросы
