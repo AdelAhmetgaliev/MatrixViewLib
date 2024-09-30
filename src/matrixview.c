@@ -80,3 +80,9 @@ void mv_rand(MatrixView *matrix) {
         matrix->dataView[i] = randd();
     }
 }
+
+void mv_map(MatrixView *matrix, double (*func)(double)) {
+    for (size_t i = 0; i < matrix->rowCount * matrix->colCount; ++i) {
+        matrix->dataView[i] = func(matrix->dataView[i]);
+    }
+}
