@@ -16,8 +16,8 @@ void mv_print(const MatrixView *matrix) {
 }
 
 void mv_copy(MatrixView *dest, const MatrixView *src) {
-    assert(dest->rowCount == src->rowCount && "Ошибка! Неравное число строк!\n");
-    assert(dest->colCount == src->colCount && "Ошибка! Неравное число столбцов!\n");
+    assert(dest->rowCount == src->rowCount && "Ошибка! Неравное число строк!");
+    assert(dest->colCount == src->colCount && "Ошибка! Неравное число столбцов!");
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
@@ -34,13 +34,13 @@ void mv_copydf(MatrixView *dest, const MatrixView *src) {
 
 void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(left->rowCount == right->rowCount &&
-            "Ошибка! Число строк двух слагаемых различается!\n");
+            "Ошибка! Число строк двух слагаемых различается!");
     assert(left->colCount == right->colCount &&
-            "Ошибка! Число столбцов двух слагаемых различается!\n");
+            "Ошибка! Число столбцов двух слагаемых различается!");
     assert(dest->rowCount == left->rowCount &&
-            "Ошибка! Число строк матрицы-суммы отлично от матриц-слагаемых!\n");
+            "Ошибка! Число строк матрицы-суммы отлично от матриц-слагаемых!");
     assert(dest->colCount == left->colCount &&
-            "Ошибка! Число столбцов матрицы-суммы отлично от матриц-слагаемых!\n");
+            "Ошибка! Число столбцов матрицы-суммы отлично от матриц-слагаемых!");
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
@@ -48,8 +48,8 @@ void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
 }
 
 void mv_sumto(MatrixView *dest, const MatrixView *src) {
-    assert(dest->rowCount == src->rowCount && "Ошибка! Число строк у двух матриц различается!\n");
-    assert(dest->colCount == src->colCount && "Ошибка! Число столбцов у двух матриц различается!\n");
+    assert(dest->rowCount == src->rowCount && "Ошибка! Число строк у двух матриц различается!");
+    assert(dest->colCount == src->colCount && "Ошибка! Число столбцов у двух матриц различается!");
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
@@ -58,9 +58,9 @@ void mv_sumto(MatrixView *dest, const MatrixView *src) {
 
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(left->colCount == right->rowCount &&
-            "Ошибка! Число столбцов левого множителя не равно числу строк правого!\n");
+            "Ошибка! Число столбцов левого множителя не равно числу строк правого!");
     assert(dest->rowCount == left->rowCount && dest->colCount == right->colCount &&
-            "Ошибка! Матрица-произведение не соответсвует размерам!\n");
+            "Ошибка! Матрица-произведение не соответсвует размерам!");
 
     for (size_t i = 0; i < dest->rowCount; ++i) {
         for (size_t j = 0; j < dest->colCount; ++j) {
