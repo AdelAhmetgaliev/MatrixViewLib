@@ -70,3 +70,13 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
         }
     }
 }
+
+static double randd(void) {
+    return ((double) rand() / RAND_MAX) * 2.0 - 1.0;
+}
+
+void mv_rand(MatrixView *matrix) {
+    for (size_t i = 0; i < matrix->rowCount * matrix->colCount; ++i) {
+        matrix->dataView[i] = randd();
+    }
+}
