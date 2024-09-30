@@ -55,6 +55,12 @@ void mv_sumto(MatrixView *dest, const MatrixView *src);
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 ```
 
+#### Рандомизация
+Заполняет матрицу рандомными значениями от -1 до +1.
+```C
+void mv_rand(MatrixView *matrix);
+```
+
 ### Макросы
 Макрос заменяющий обращение `matrix[row][col]`. 
 ```C
