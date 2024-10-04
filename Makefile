@@ -1,4 +1,6 @@
-CC = gcc
+CC = clang
+LL = clang
+
 LIBTARGET = lib/libmatrixview.a
 TARGET = bin/matrixview
 
@@ -6,8 +8,8 @@ ODIR = obj
 SDIR = src
 IDIR = $(SDIR)/inc
 
-CFLAGS = -g -Wall -Wextra -I$(IDIR)
-LIBS = -lm
+CFLAGS = -O3 -Wall -Wextra -I$(IDIR)
+LFLAGS = -fuse-ld=lld -flto -lm
 
 _HEADS = matrixview.h
 HEADS = $(patsubst %,$(IDIR)/%,$(_HEADS))
@@ -19,13 +21,13 @@ _OBJS = main.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 $(TARGET): $(OBJS) $(LIBTARGET)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(LFLAGS)
 
 $(LIBTARGET): $(LIBOBJS)
 	ar -rcs $@ $^
 
 $(ODIR)/%.o: $(SDIR)/%.c $(HEADS) bin lib $(ODIR)
-	$(CC) -c -o $@ $< $(CFLAGS) $(LIBS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 bin:
 	mkdir $@
