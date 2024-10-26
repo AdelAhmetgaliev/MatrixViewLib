@@ -8,8 +8,8 @@ ODIR = obj
 SDIR = src
 IDIR = $(SDIR)/inc
 
-CFLAGS = -O3 -Wall -Wextra -I$(IDIR)
-LFLAGS = -fuse-ld=lld -flto -lm
+CFLAGS = -O3 -Wall -Wextra -I$(IDIR) -fstack-protector-all -fpie
+LFLAGS = -fuse-ld=lld -flto -lm -s -Wl,-z,relro,-z,now
 
 _HEADS = matrixview.h
 HEADS = $(patsubst %,$(IDIR)/%,$(_HEADS))
