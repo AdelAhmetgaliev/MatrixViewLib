@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount) {
-    return (MatrixView) {.dataView = dataView, .rowCount = rowCount, .colCount = colCount};
+    return (MatrixView) { .dataView = dataView, .rowCount = rowCount, .colCount = colCount };
 }
 
 void mv_print(const MatrixView *matrix) {
@@ -69,6 +69,14 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
                 MV_GET(*dest, i, j) += MV_GET(*left, i, k) * MV_GET(*right, k, j);
         }
     }
+}
+
+void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
+    (void) dest;
+    (void) left;
+    (void) right;
+
+    assert(0 && "Not implemented!");
 }
 
 static double randd(void) {

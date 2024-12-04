@@ -25,6 +25,7 @@ void mv_copydf(MatrixView *dest, const MatrixView *src);
 void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 void mv_sumto(MatrixView *dest, const MatrixView *src);
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
+void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 void mv_rand(MatrixView *matrix);
 void mv_map(MatrixView *matrix, double (*func)(double));
 
