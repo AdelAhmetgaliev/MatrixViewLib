@@ -26,11 +26,11 @@ int main(void) {
         return EXIT_FAILURE;
     }
 
-    MatrixView vector = mv_new(vectorData, 1, 2);
+    MatrixView vector = mv_new(vectorData, 2, 1);
     MatrixView rotationMatrix = mv_new(rotationData, 2, 2);
-    MatrixView resultVector = mv_new(resultData, 1, 2);
+    MatrixView resultVector = mv_new(resultData, 2, 1);
 
-    mv_dot(&resultVector, &vector, &rotationMatrix);
+    mv_dot(&resultVector, &rotationMatrix, &vector);
     mv_print(&resultVector);
 
     free(resultData);
