@@ -60,7 +60,7 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(left->colCount == right->rowCount &&
             "Ошибка! Число столбцов левого множителя не равно числу строк правого!");
     assert(dest->rowCount == left->rowCount && dest->colCount == right->colCount &&
-            "Ошибка! Матрица-произведение не соответсвует размерам!");
+            "Ошибка! Матрица-произведение не соответствует размерам!");
 
     for (size_t i = 0; i < dest->rowCount; ++i) {
         for (size_t j = 0; j < dest->colCount; ++j) {
