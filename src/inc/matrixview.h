@@ -9,9 +9,6 @@
 
 #include <stdlib.h>
 
-/* Макрос ссылающийся на данные в ячейке matrix[row][col]. */
-#define MV_GET(matrix, row, col) (matrix).dataView[(row) * (matrix).colCount + (col)]
-
 typedef struct _MatrixView {
     double *dataView;   /* Поинтер на линейный массив. */
     size_t rowCount;    /* Кол-во строк в представлении. */
@@ -28,5 +25,8 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 void mv_rand(MatrixView *matrix);
 void mv_map(MatrixView *matrix, double (*func)(double));
+
+/* Макрос ссылающийся на данные в ячейке matrix[row][col]. */
+#define mv_get(matrix, row, col) (matrix).dataView[(row) * (matrix).colCount + (col)]
 
 #endif /* MATRIXVIEW_H_ */

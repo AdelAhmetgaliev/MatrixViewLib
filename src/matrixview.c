@@ -10,7 +10,7 @@ MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount) {
 void mv_print(const MatrixView *matrix) {
     for (size_t i = 0; i < matrix->rowCount; ++i) {
         for (size_t j = 0; j < matrix->colCount; ++j)
-            printf("%f ", MV_GET(*matrix, i, j));
+            printf("%f ", mv_get(*matrix, i, j));
         printf("\n");
     }
 }
@@ -21,7 +21,7 @@ void mv_copy(MatrixView *dest, const MatrixView *src) {
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
-            MV_GET(*dest, i, j) = MV_GET(*src, i, j);
+            mv_get(*dest, i, j) = mv_get(*src, i, j);
 }
 
 void mv_copydf(MatrixView *dest, const MatrixView *src) {
@@ -44,7 +44,7 @@ void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
-            MV_GET(*dest, i, j) = MV_GET(*left, i, j) + MV_GET(*right, i, j);
+            mv_get(*dest, i, j) = mv_get(*left, i, j) + mv_get(*right, i, j);
 }
 
 void mv_sumto(MatrixView *dest, const MatrixView *src) {
@@ -53,7 +53,7 @@ void mv_sumto(MatrixView *dest, const MatrixView *src) {
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
-            MV_GET(*dest, i, j) += MV_GET(*src, i, j);
+            mv_get(*dest, i, j) += mv_get(*src, i, j);
 }
 
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
@@ -64,9 +64,9 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
 
     for (size_t i = 0; i < dest->rowCount; ++i) {
         for (size_t j = 0; j < dest->colCount; ++j) {
-            MV_GET(*dest, i, j) = 0.0;
+            mv_get(*dest, i, j) = 0.0;
             for (size_t k = 0; k < left->colCount; ++k)
-                MV_GET(*dest, i, j) += MV_GET(*left, i, k) * MV_GET(*right, k, j);
+                mv_get(*dest, i, j) += mv_get(*left, i, k) * mv_get(*right, k, j);
         }
     }
 }

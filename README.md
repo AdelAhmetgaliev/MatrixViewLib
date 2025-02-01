@@ -70,5 +70,5 @@ void mv_map(MatrixView *matrix, double (*func)(double));
 ### Макросы
 Макрос заменяющий обращение `matrix[row][col]`. 
 ```C
-#define MV_GET(matrix, row, col) (matrix).dataView[(row) * (matrix).colCount + (col)]
+#define mv_get(matrix, row, col) (matrix).dataView[(row) * (matrix).colCount + (col)]
 ```
