@@ -72,11 +72,21 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
 }
 
 void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
-    (void) dest;
-    (void) left;
-    (void) right;
+    assert(dest->rowCount == left->rowCount * right->rowCount &&
+            "Ошибка! Число строк матрицы-произведения не соответсвует размерам!");
+    assert(dest->colCount == left->colCount * right->colCount &&
+            "Ошибка! Число столбцов матрицы-произведения не соотсвествует размерам!");
 
-    assert(0 && "Not implemented!");
+    for (size_t i = 0; i < left->rowCount; ++i) {
+        for (size_t j = 0; j < left->colCount; ++j) {
+            for (size_t k = 0; k < right->rowCount; ++k) {
+                for (size_t l = 0; l < right->colCount; ++l) {
+                    mv_get(*dest, i * right->rowCount + k, j * right->colCount + l) =
+                        mv_get(*left, i, j) * mv_get(*right, k, l);
+                }
+            }
+        }
+    }
 }
 
 static double randd(void) {
