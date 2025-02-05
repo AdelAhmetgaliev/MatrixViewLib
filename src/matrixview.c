@@ -73,9 +73,9 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
 
 void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(dest->rowCount == left->rowCount * right->rowCount &&
-            "Ошибка! Число строк матрицы-произведения не соответсвует размерам!");
+            "Ошибка! Число строк матрицы-произведения не соответствует размерам!");
     assert(dest->colCount == left->colCount * right->colCount &&
-            "Ошибка! Число столбцов матрицы-произведения не соотсвествует размерам!");
+            "Ошибка! Число столбцов матрицы-произведения не соответствует размерам!");
 
     for (size_t i = 0; i < left->rowCount; ++i) {
         for (size_t j = 0; j < left->colCount; ++j) {
