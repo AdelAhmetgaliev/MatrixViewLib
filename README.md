@@ -55,6 +55,11 @@ void mv_sumto(MatrixView *dest, const MatrixView *src);
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
 ```
 
+Тензорно умножает матрицы *left* и *right*. Записывает результат в *dest*.
+```C
+void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
+```
+
 #### Рандомизация
 Заполняет матрицу рандомными значениями от -1.0 до +1.0.
 ```C
