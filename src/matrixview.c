@@ -77,16 +77,12 @@ void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right) 
     assert(dest->colCount == left->colCount * right->colCount &&
             "Ошибка! Число столбцов матрицы-произведения не соответствует размерам!");
 
-    for (size_t i = 0; i < left->rowCount; ++i) {
-        for (size_t j = 0; j < left->colCount; ++j) {
-            for (size_t k = 0; k < right->rowCount; ++k) {
-                for (size_t l = 0; l < right->colCount; ++l) {
+    for (size_t i = 0; i < left->rowCount; ++i)
+        for (size_t j = 0; j < left->colCount; ++j)
+            for (size_t k = 0; k < right->rowCount; ++k)
+                for (size_t l = 0; l < right->colCount; ++l)
                     mv_get(*dest, i * right->rowCount + k, j * right->colCount + l) =
                         mv_get(*left, i, j) * mv_get(*right, k, l);
-                }
-            }
-        }
-    }
 }
 
 static double randd(void) {
