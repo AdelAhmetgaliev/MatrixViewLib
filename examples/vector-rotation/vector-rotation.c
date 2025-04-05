@@ -8,7 +8,7 @@
 
 #include "matrixview.h"
 
-double degreesToRadians(double degrees);
+static double degreesToRadians(double degrees);
 
 int main(void) {
     double angleDegrees = 45.0;
@@ -33,12 +33,14 @@ int main(void) {
     mv_dot(&resultVector, &rotationMatrix, &vector);
     mv_print(&resultVector);
 
-    free(resultData);
-    resultData = NULL;
+    if (resultData) {
+        free(resultData);
+        resultData = NULL;
+    }
 
     return EXIT_SUCCESS;
 }
 
-double degreesToRadians(double degrees) {
+static double degreesToRadians(double degrees) {
     return degrees * (M_PI / 180.0);
 }
