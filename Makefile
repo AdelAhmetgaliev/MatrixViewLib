@@ -1,13 +1,13 @@
-CC = gcc
+CC = clang
 
 LIBTARGET = lib/libmatrixview.a
 
 BDIR = build
 ODIR = $(BDIR)/obj
 SDIR = src
-IDIR = $(SDIR)/inc
+IDIR = include
 
-CFLAGS = -I$(IDIR) -O2 -fpic -shared -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 \
+CFLAGS = -I$(IDIR) -O2 -fpic -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 \
 		 -fstack-clash-protection -fstack-protector-all -fstack-protector-strong -fcf-protection=full
 
 _HEADS = matrixview.h
