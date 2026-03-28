@@ -43,7 +43,7 @@ void mv_copy(MatrixView *dest, const MatrixView *src);
  * @param *dest поинтер на MatrixView куда идет копирование.
  * @param *src поинтер на MatrixView откуда идет копирование.
  */
-void mv_copydf(MatrixView *dest, const MatrixView *src);
+void mv_copy_raw(MatrixView *dest, const MatrixView *src);
 
 /**
  * Суммирует элементы двух MatrixView.

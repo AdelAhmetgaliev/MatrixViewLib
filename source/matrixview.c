@@ -24,7 +24,7 @@ void mv_copy(MatrixView *dest, const MatrixView *src) {
             mv_get(*dest, i, j) = mv_get(*src, i, j);
 }
 
-void mv_copydf(MatrixView *dest, const MatrixView *src) {
+void mv_copy_raw(MatrixView *dest, const MatrixView *src) {
     assert(dest->rowCount * dest->colCount == src->rowCount * src->colCount &&
             "Ошибка! Общие размеры матриц различны!");
 

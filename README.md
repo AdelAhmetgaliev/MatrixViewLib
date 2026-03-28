@@ -31,7 +31,7 @@ void mv_copy(MatrixView *dest, const MatrixView *src);
 
 Копирует элементы матрицы *src* в матрицу *dest*. Общие размеры матриц должны быть одинаковы.
 ```C
-void mv_copydf(MatrixView *dest, const MatrixView *src);
+void mv_copy_raw(MatrixView *dest, const MatrixView *src);
 ```
 
 Различие двух функций копирования в том, что `mv_copy` требует строгого соответсвия размеров
