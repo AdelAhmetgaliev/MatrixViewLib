@@ -1,10 +1,11 @@
 CC = clang
+AR = ar
 
 LIBTARGET = lib/libmatrixview.a
 
 BDIR = build
 ODIR = $(BDIR)/obj
-SDIR = src
+SDIR = source
 IDIR = include
 
 CFLAGS = -I$(IDIR) -O2 -fpic -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 \
@@ -17,7 +18,7 @@ _LIBOBJS = matrixview.o
 LIBOBJS = $(patsubst %,$(ODIR)/%,$(_LIBOBJS))
 
 $(BDIR)/$(LIBTARGET): $(LIBOBJS)
-	ar -rcs $@ $^
+	$(AR) -rcs $@ $^
 
 $(ODIR)/%.o: $(SDIR)/%.c $(HEADS) $(BDIR)/lib $(ODIR)
 	$(CC) -c -o $@ $< $(CFLAGS)
