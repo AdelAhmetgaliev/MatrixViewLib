@@ -32,6 +32,15 @@ void mv_copy_raw(MatrixView *dest, const MatrixView *src) {
         dest->dataView[i] = src->dataView[i];
 }
 
+void mv_transpose(MatrixView *dest, const MatrixView *src) {
+    assert(dest->rowCount == src->colCount && dest->colCount == src->rowCount &&
+            "Ошибка! Размеры матриц не соответствуют транспонированию!");
+
+    for (size_t i = 0; i < src->rowCount; ++i)
+        for (size_t j = 0; j < src->colCount; ++j)
+            mv_get(*dest, j, i) = mv_get(*src, i, j);
+}
+
 void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(left->rowCount == right->rowCount &&
             "Ошибка! Число строк двух слагаемых различается!");

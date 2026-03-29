@@ -38,6 +38,12 @@ void mv_copy_raw(MatrixView *dest, const MatrixView *src);
 матриц (количества строк и столбцов). В то время как для `mv_copy_raw` достаточно соответствия
 размеров линейных массивов (`dataView[]`).
 
+#### Транспонирование
+Транспонирует матрицу *src*. Записывает результат в *dest*.
+```C
+void mv_transpose(MatrixView *dest, const MatrixView *src);
+```
+
 #### Суммирование
 Суммирует матрицы *left* и *right*. Записывает результат в *dest*.
 ```C

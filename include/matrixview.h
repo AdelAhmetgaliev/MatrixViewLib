@@ -46,6 +46,13 @@ void mv_copy(MatrixView *dest, const MatrixView *src);
 void mv_copy_raw(MatrixView *dest, const MatrixView *src);
 
 /**
+ * Транспонирует матрицу.
+ * @param *dest поинтер на MatrixView транспонированной матрицы.
+ * @param *src поинтер на MatrixView исходной матрицы.
+ */
+void mv_transpose(MatrixView *dest, const MatrixView *src);
+
+/**
  * Суммирует элементы двух MatrixView.
  * @param *dest поинтер на MatrixView куда будут суммироваться элементы.
  * @param *left поинтер на MatrixView первого слагаемого.
