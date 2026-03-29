@@ -65,6 +65,11 @@ void mv_sumto(MatrixView *dest, const MatrixView *src) {
             mv_get(*dest, i, j) += mv_get(*src, i, j);
 }
 
+void mv_scale(MatrixView *matrix, double scalar) {
+    for (size_t i = 0; i < matrix->rowCount * matrix->colCount; ++i)
+        matrix->dataView[i] *= scalar;
+}
+
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(left->colCount == right->rowCount &&
             "Ошибка! Число столбцов левого множителя не равно числу строк правого!");

@@ -56,6 +56,11 @@ void mv_sumto(MatrixView *dest, const MatrixView *src);
 ```
 
 #### Умножение
+Умножает матрицу *matrix* на скаляр *scalar*.
+```C
+void mv_scale(MatrixView *matrix, double scalar);
+```
+
 Умножает матрицы *left* и *right*. Записывает результат в *dest*.
 ```C
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right);
