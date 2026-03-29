@@ -1,3 +1,16 @@
+# Конфигурации и временные данные
 .cache/
-build/
 compile_commands.json
+
+# Файлы сборки
+build/
+*.exe
+*.a
+*.so
+*.o
+*.obj
+
+# Файлы IDE
+.idea/
+.vim/
+.vscode/
