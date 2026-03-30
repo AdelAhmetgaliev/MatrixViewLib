@@ -10,9 +10,9 @@
 #include <stdlib.h>
 
 typedef struct _MatrixView {
-    double *dataView;   /* Указатель на линейный массив. */
-    size_t rowCount;    /* Кол-во строк в представлении. */
-    size_t colCount;    /* Кол-во столбцов в представлении. */
+    double *dataView; /* Указатель на линейный массив. */
+    size_t rowCount;  /* Кол-во строк в представлении. */
+    size_t colCount;  /* Кол-во столбцов в представлении. */
 } MatrixView;
 
 /**

@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 MatrixView mv_new(double *dataView, size_t rowCount, size_t colCount) {
-    return (MatrixView) { .dataView = dataView, .rowCount = rowCount, .colCount = colCount };
+    return (MatrixView){.dataView = dataView, .rowCount = rowCount, .colCount = colCount};
 }
 
 void mv_print(const MatrixView *matrix) {
@@ -26,7 +26,7 @@ void mv_copy(MatrixView *dest, const MatrixView *src) {
 
 void mv_copy_raw(MatrixView *dest, const MatrixView *src) {
     assert(dest->rowCount * dest->colCount == src->rowCount * src->colCount &&
-            "Ошибка! Общие размеры матриц различны!");
+           "Ошибка! Общие размеры матриц различны!");
 
     for (size_t i = 0; i < dest->rowCount * dest->colCount; ++i)
         dest->dataView[i] = src->dataView[i];
@@ -34,7 +34,7 @@ void mv_copy_raw(MatrixView *dest, const MatrixView *src) {
 
 void mv_transpose(MatrixView *dest, const MatrixView *src) {
     assert(dest->rowCount == src->colCount && dest->colCount == src->rowCount &&
-            "Ошибка! Размеры матриц не соответствуют транспонированию!");
+           "Ошибка! Размеры матриц не соответствуют транспонированию!");
 
     for (size_t i = 0; i < src->rowCount; ++i)
         for (size_t j = 0; j < src->colCount; ++j)
@@ -42,14 +42,13 @@ void mv_transpose(MatrixView *dest, const MatrixView *src) {
 }
 
 void mv_sum(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
-    assert(left->rowCount == right->rowCount &&
-            "Ошибка! Число строк двух слагаемых различается!");
+    assert(left->rowCount == right->rowCount && "Ошибка! Число строк двух слагаемых различается!");
     assert(left->colCount == right->colCount &&
-            "Ошибка! Число столбцов двух слагаемых различается!");
+           "Ошибка! Число столбцов двух слагаемых различается!");
     assert(dest->rowCount == left->rowCount &&
-            "Ошибка! Число строк матрицы-суммы отлично от матриц-слагаемых!");
+           "Ошибка! Число строк матрицы-суммы отлично от матриц-слагаемых!");
     assert(dest->colCount == left->colCount &&
-            "Ошибка! Число столбцов матрицы-суммы отлично от матриц-слагаемых!");
+           "Ошибка! Число столбцов матрицы-суммы отлично от матриц-слагаемых!");
 
     for (size_t i = 0; i < dest->rowCount; ++i)
         for (size_t j = 0; j < dest->colCount; ++j)
@@ -72,9 +71,9 @@ void mv_scale(MatrixView *matrix, double scalar) {
 
 void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(left->colCount == right->rowCount &&
-            "Ошибка! Число столбцов левого множителя не равно числу строк правого!");
+           "Ошибка! Число столбцов левого множителя не равно числу строк правого!");
     assert(dest->rowCount == left->rowCount && dest->colCount == right->colCount &&
-            "Ошибка! Матрица-произведение не соответствует размерам!");
+           "Ошибка! Матрица-произведение не соответствует размерам!");
 
     for (size_t i = 0; i < dest->rowCount; ++i) {
         for (size_t j = 0; j < dest->colCount; ++j) {
@@ -87,9 +86,9 @@ void mv_dot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
 
 void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right) {
     assert(dest->rowCount == left->rowCount * right->rowCount &&
-            "Ошибка! Число строк матрицы-произведения не соответствует размерам!");
+           "Ошибка! Число строк матрицы-произведения не соответствует размерам!");
     assert(dest->colCount == left->colCount * right->colCount &&
-            "Ошибка! Число столбцов матрицы-произведения не соответствует размерам!");
+           "Ошибка! Число столбцов матрицы-произведения не соответствует размерам!");
 
     for (size_t i = 0; i < left->rowCount; ++i)
         for (size_t j = 0; j < left->colCount; ++j)
@@ -99,9 +98,7 @@ void mv_tdot(MatrixView *dest, const MatrixView *left, const MatrixView *right) 
                         mv_get(*left, i, j) * mv_get(*right, k, l);
 }
 
-static double randd(void) {
-    return ((double) rand() / RAND_MAX) * 2.0 - 1.0;
-}
+static double randd(void) { return ((double)rand() / RAND_MAX) * 2.0 - 1.0; }
 
 void mv_rand(MatrixView *matrix) {
     for (size_t i = 0; i < matrix->rowCount * matrix->colCount; ++i) {

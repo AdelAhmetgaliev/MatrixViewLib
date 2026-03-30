@@ -9,7 +9,7 @@
 #include "matrixview.h"
 
 #ifndef M_PI
-    #define M_PI 3.14159265358979323846
+#define M_PI 3.14159265358979323846
 #endif
 
 static double degreesToRadians(double degrees);
@@ -18,7 +18,7 @@ int main(void) {
     double angleDegrees = 45.0;
     double angleRadians = degreesToRadians(angleDegrees);
 
-    double vectorData[] = { 1, 0 };
+    double vectorData[] = {1, 0};
     double rotationData[] = {
         cos(angleRadians), -sin(angleRadians),
         sin(angleRadians), cos(angleRadians)
@@ -45,6 +45,4 @@ int main(void) {
     return EXIT_SUCCESS;
 }
 
-static double degreesToRadians(double degrees) {
-    return degrees * (M_PI / 180.0);
-}
+static double degreesToRadians(double degrees) { return degrees * (M_PI / 180.0); }
