@@ -2,8 +2,8 @@ CC = clang
 AR = llvm-ar
 
 BDIR = build
-ODIR = $(BDIR)/obj
-LDIR = $(BDIR)/lib
+ODIR = $(BDIR)/objects
+LDIR = $(BDIR)/library
 DDIR = $(BDIR)/deps
 BEDIR = $(BDIR)/examples
 SDIR = source
